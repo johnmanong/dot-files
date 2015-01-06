@@ -11,3 +11,6 @@ if [[ -e $LIBS_DIR ]]; then
 else
     echo 'something went very wrong installing libs' 
 fi
+
+# symlink dot files
+ln -s $PWD/.bash_profile $HOME/.bash_profile

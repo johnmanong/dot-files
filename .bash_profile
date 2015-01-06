@@ -1,5 +1,18 @@
-PATH_GIT_COMPLETION=~/.git-completion.bash
-PATH_GIT_PROMPT=~/.git-prompt.sh
+# setup
+SOURCE_ROOT='dot-files'  # this has to be set to path relative to $HOME
+
+if [ ! -d $SOURCE_ROOT ]; then
+	echo 'source_root must must be set!'
+	return 1
+fi
+
+pushd $SOURCE_ROOT > /dev/null
+
+INIT_ROOT_DIR=${PWD}
+
+PATH_GIT_COMPLETION=$INIT_ROOT_DIR/libs/local/.git-completion.bash
+PATH_GIT_PROMPT=$INIT_ROOT_DIR/libs/local/.git-prompt.sh
+
 
 __COLOR_CLI_DEFAULT="\[\e[0m\]"
 __COLOR_CLI_DIR="\[\e[32;1m\]"
@@ -100,8 +113,12 @@ alias pbr='pants-build-dev && pants-embedded'
 alias pbt='pants-build-dev && pants-embedded-testing --profile=oe --port=4444'
 
 # arc
-export PATH="$PATH:$HOME/config/arc/arcanist/bin" # Add arc (phab) to path
-source /Users/ong/config/arc/arcanist/resources/shell/bash-completion
+export PATH="$PATH:$INIT_ROOT_DIR/libs/arc/arcanist/bin" # Add arc (phab) to path
+source $INIT_ROOT_DIR/libs/arc/arcanist/resources/shell/bash-completion
 
 # elastic search
 alias esearch='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
+
+
+# cleanup
+popd > /dev/null
