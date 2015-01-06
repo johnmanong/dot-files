@@ -1,0 +1,9 @@
+[user]
+	name = ong
+	email = ong@hioscar.com
+[alias]
+	st = status
+	co = checkout
+	mm = merge master
+	pom = pull origin master
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %cd) %C(bold blue)<%an> %Creset' --abbrev-commit

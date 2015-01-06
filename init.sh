@@ -14,3 +14,7 @@ fi
 
 # symlink dot files
 ln -s $PWD/.bash_profile $HOME/.bash_profile
+
+# setup git
+source init_git.sh 
+
