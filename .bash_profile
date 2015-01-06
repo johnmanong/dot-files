@@ -119,6 +119,10 @@ source $INIT_ROOT_DIR/libs/arc/arcanist/resources/shell/bash-completion
 # elastic search
 alias esearch='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
 
+# sublime
+mkdir -p $HOME/bin
+export PATH=$PATH:$HOME/bin
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl > /dev/null
 
 # cleanup
 popd > /dev/null
