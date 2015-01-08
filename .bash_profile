@@ -1,14 +1,11 @@
 # setup
 SOURCE_ROOT='dot-files'  # this has to be set to path relative to $HOME
+INIT_ROOT_DIR=$HOME/$SOURCE_ROOT
 
-if [ ! -d $SOURCE_ROOT ]; then
-	echo 'source_root must must be set!'
+if [ ! -d $INIT_ROOT ]; then
+	echo 'source_root must must be set to an available directory!'
 	return 1
 fi
-
-pushd $SOURCE_ROOT > /dev/null
-
-INIT_ROOT_DIR=${PWD}
 
 PATH_GIT_COMPLETION=$INIT_ROOT_DIR/libs/local/.git-completion.bash
 PATH_GIT_PROMPT=$INIT_ROOT_DIR/libs/local/.git-prompt.sh
@@ -56,10 +53,10 @@ export LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN=1
 
 # PROJECT SPECIFIC
 # Oscar pypi mirror
-export PIP_FIND_LINKS="http://builder:8000/simple/"
-#export PIP_INDEX_URL="http://builder:8000/simple/"
+BUILDER_URL="http://builder:8000/simple/"
+export PIP_FIND_LINKS="$BUILDER_URL"
 export PIP_INDEX_URL="https://pypi.python.org/simple/"
-export PIP_EXTRA_INDEX_URL="http://builder:8000/simple/"
+export PIP_EXTRA_INDEX_URL="$BUILDER_URL"
 
 export DATA_REPO='/Users/ong/code/data'
 
@@ -122,5 +119,3 @@ alias esearch='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasti
 # symlink stuff
 export PATH=$PATH:$HOME/bin
 
-# cleanup
-popd > /dev/null
