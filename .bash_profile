@@ -97,7 +97,8 @@ alias start-moto='moto_server -H 127.0.0.1 -p 3000 s3bucket_path'
 alias start-docstor='./build_tools/trashcan/opython.py internal-site/internal_site/embedded/run.py --embedded --profile=docstor'
 alias start-rosco='./build_tools/trashcan/opython.py internal-site/internal_site/embedded/run.py'
 alias start-rosco-ext='./build_tools/trashcan/opython.py internal-site/internal_site/embedded/run.py --host=192.168.128.169'
-alias start-web='/Users/ong/Envs/web/bin/python /Users/ong/code/data/web/manage.py runserver 8000'
+alias start-web='/Users/ong/Envs/data/bin/python /Users/ong/code/data/web/manage.py runserver 8000'
+alias trash-web='PYTHONPATH=oscar/trashcan /Users/ong/code/data/web/manage.py runserver 8000'
 alias start-sweb='export LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN=1; python /Users/ong/code/data/web/oscar/trashcan/oscar/manage.py runserver 8000'
 
 # pants
