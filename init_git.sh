@@ -27,3 +27,4 @@ git config --global alias.mm "merge master"
 git config --global alias.pom "pull origin master"
 
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %cd) %C(bold blue)<%an> %Creset' --abbrev-commit"
+git config --global alias.ref "for-each-ref --sort=-committerdate refs/heads/"
