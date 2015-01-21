@@ -108,7 +108,8 @@ alias pants-run='./dist/manhattan.pex --environment=pants-local-development'
 alias pants-run-dev='./dist/manhattan_dev.pex --environment=pants-local-development'
 alias pants-embedded='./dist/manhattan_dev.pex --environment=pants-embedded-development --profile=quick'
 alias pants-embedded-testing='./dist/manhattan_dev.pex --environment=pants-embedded-testing --profile=quick'
-alias pbr='pants-build-dev && pants-embedded'
+alias pbr='pants-build-dev && pants-run-dev'
+alias pber='pants-build-dev && pants-embedded'
 alias pbt='pants-build-dev && pants-embedded-testing --profile=oe --port=4444'
 
 # arc
