@@ -105,6 +105,7 @@ alias start-sweb='export LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN=1; python /Users/ong/c
 alias pants-build='./pants manhattan/manhattan:manhattan'
 alias pants-build-dev='./pants manhattan/manhattan:manhattan_dev'
 alias pants-run='./dist/manhattan.pex --environment=pants-local-development'
+alias pants-run-dev='./dist/manhattan_dev.pex --environment=pants-local-development'
 alias pants-embedded='./dist/manhattan_dev.pex --environment=pants-embedded-development --profile=quick'
 alias pants-embedded-testing='./dist/manhattan_dev.pex --environment=pants-embedded-testing --profile=quick'
 alias pbr='pants-build-dev && pants-embedded'
