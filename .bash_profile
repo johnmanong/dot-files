@@ -40,6 +40,10 @@ if [ -f $PATH_GIT_COMPLETION ]; then
   source $PATH_GIT_COMPLETION
 fi
 
+# OSX stuff
+alias show-hidden-finder='defaults write com.apple.finder AppleShowAllFiles YES'
+alias hide-hidden-finder='defaults write com.apple.finder AppleShowAllFiles NO'
+
 
 # PY STUFF
 export WORKON_HOME=~/Envs
