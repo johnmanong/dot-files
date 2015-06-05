@@ -8,3 +8,10 @@
 	pom = pull origin master
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr, %cd) %C(bold blue)<%an> %Creset' --abbrev-commit
 	ref = for-each-ref --sort=-committerdate refs/heads/
+	bitches = branch
+	trap = clone
+	money = merge
+	paid = pull
+	pusha = push
+	freebase = rebase
+	sitch = status

@@ -74,10 +74,11 @@ alias speed_up_ios_undo='sudo sysctl -w kern.timer.coalescing_enabled=1'
 alias whereami='ifconfig | ack -o '192.168.128.169' | xargs echo "your ip address is:${1}"'
 alias jsc='node'
 
-# phabricator
+## phabricator
 alias d=''
 alias ad='arc diff'
 alias al='arc lint'
+alias ab='arc branch'
 alias ado='arc diff --only'
 alias adu='arc diff --update ${1}'
 
@@ -96,7 +97,7 @@ alias gco='git checkout'
 alias gd='git diff'
 alias gs='git status'
 
-# py
+## py
 alias start-moto='moto_server -H 127.0.0.1 -p 3000 s3bucket_path'
 alias start-docstor='./build_tools/trashcan/opython.py internal-site/internal_site/embedded/run.py --embedded --profile=docstor'
 alias start-rosco='./build_tools/trashcan/opython.py internal-site/internal_site/embedded/run.py'
@@ -105,7 +106,7 @@ alias start-web='/Users/ong/Envs/data/bin/python /Users/ong/code/data/web/manage
 alias trash-web='PYTHONPATH=oscar/trashcan /Users/ong/code/data/web/manage.py runserver 8000'
 alias start-sweb='export LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN=1; python /Users/ong/code/data/web/oscar/trashcan/oscar/manage.py runserver 8000'
 
-# pants
+## pants
 alias pants-build='./pants manhattan/manhattan:manhattan'
 alias pants-build-dev='./pants manhattan/manhattan:manhattan_dev'
 alias pants-run='./dist/manhattan.pex --environment=pants-local-development'
@@ -115,12 +116,19 @@ alias pants-embedded-testing='./dist/manhattan_dev.pex --environment=pants-embed
 alias pbr='pants-build-dev && pants-run-dev'
 alias pber='pants-build-dev && pants-embedded'
 alias pbt='pants-build-dev && pants-embedded-testing --profile=oe --port=4444'
+alias pt='./pants goal build-deps --build-deps-virtualenv=data'
 
-# arc
+
+# more config
+
+## pants
+source $DATA_REPO/engshare/bin/pants_bash_autocomplete
+
+## arc
 export PATH="$PATH:$INIT_ROOT_DIR/libs/arc/arcanist/bin" # Add arc (phab) to path
 source $INIT_ROOT_DIR/libs/arc/arcanist/resources/shell/bash-completion
 
-# elastic search
+## elastic search
 alias esearch='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
 
 # symlink stuff
