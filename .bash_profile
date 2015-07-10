@@ -74,6 +74,9 @@ alias speed_up_ios_undo='sudo sysctl -w kern.timer.coalescing_enabled=1'
 alias whereami='ifconfig | ack -o '192.168.128.169' | xargs echo "your ip address is:${1}"'
 alias jsc='node'
 
+## hosts
+alias hostname='host ong | awk -F '"'"'has address '"'"' '"'"'{ system("host " $2) }'"'"''
+
 ## phabricator
 alias d=''
 alias ad='arc diff'
@@ -117,7 +120,7 @@ alias pbr='pants-build-dev && pants-run-dev'
 alias pber='pants-build-dev && pants-embedded'
 alias pbt='pants-build-dev && pants-embedded-testing --profile=oe --port=4444'
 alias pt='./pants goal build-deps --build-deps-virtualenv=data'
-
+alias p='./pants'
 
 # more config
 
