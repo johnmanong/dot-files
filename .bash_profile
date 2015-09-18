@@ -110,17 +110,31 @@ alias trash-web='PYTHONPATH=oscar/trashcan /Users/ong/code/data/web/manage.py ru
 alias start-sweb='export LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN=1; python /Users/ong/code/data/web/oscar/trashcan/oscar/manage.py runserver 8000'
 
 ## pants
-alias pants-build='./pants manhattan/manhattan:manhattan'
-alias pants-build-dev='./pants manhattan/manhattan:manhattan_dev'
+alias p='./pants'
+alias pt='./pants goal build-deps --build-deps-virtualenv=data'
+
+### builds
+alias pants-build='./pants binary python/manhattan:manhattan'
+alias pants-build-dev='./pants binary python/manhattan:manhattan_dev'
+
+### run
 alias pants-run='./dist/manhattan.pex --environment=pants-local-development'
 alias pants-run-dev='./dist/manhattan_dev.pex --environment=pants-local-development'
 alias pants-embedded='./dist/manhattan_dev.pex --environment=pants-embedded-development --profile=quick'
 alias pants-embedded-testing='./dist/manhattan_dev.pex --environment=pants-embedded-testing --profile=quick'
+
+### build and run
 alias pbr='pants-build-dev && pants-run-dev'
 alias pber='pants-build-dev && pants-embedded'
-alias pbt='pants-build-dev && pants-embedded-testing --profile=oe --port=4444'
-alias pt='./pants goal build-deps --build-deps-virtualenv=data'
-alias p='./pants'
+
+# integration testing
+alias pri='./dist/manhattan_dev.pex --environment=pants-embedded-testing --profile=oe --port=4444'
+alias pbri='pants-build-dev && pri'
+
+# node/iojs
+# https://gist.github.com/phelma/ce4eeeedb8fb9a9e8e63
+alias usenode='brew unlink iojs && brew link node && echo Using Node.js'
+alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
 
 # more config
 
