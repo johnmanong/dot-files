@@ -1,5 +1,6 @@
 # setup
 SOURCE_ROOT='dot-files'  # this has to be set to path relative to $HOME
+
 INIT_ROOT_DIR=$HOME/$SOURCE_ROOT
 
 if [ ! -d $INIT_ROOT ]; then
@@ -78,7 +79,10 @@ alias jsc='node'
 alias hostname='host ong | awk -F '"'"'has address '"'"' '"'"'{ system("host " $2) }'"'"''
 
 ## phabricator
-alias d=''
+function d() {
+    open "https://phabricator.hioscar.com/D${1}"
+}
+alias d=d
 alias ad='arc diff'
 alias al='arc lint'
 alias ab='arc branch'
@@ -130,6 +134,10 @@ alias pber='pants-build-dev && pants-embedded'
 # integration testing
 alias pri='./dist/manhattan_dev.pex --environment=pants-embedded-testing --profile=oe --port=4444'
 alias pbri='pants-build-dev && pri'
+
+# oscar github
+alias git-personal='git config user.name johnmanong && git config user.email johnmanong@gmail.com && echo "name:" && git config user.name && echo "email:" && git config user.email'
+alias git-oscar='git config user.name ong && git config user.email ong@hioscar.com && echo "name:" && git config user.name && echo "email:" && git config user.email'
 
 # node/iojs
 # https://gist.github.com/phelma/ce4eeeedb8fb9a9e8e63
