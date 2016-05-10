@@ -78,6 +78,12 @@ alias jsc='node'
 ## hosts
 alias hostname='host ong | awk -F '"'"'has address '"'"' '"'"'{ system("host " $2) }'"'"''
 
+## jira
+function jira() {
+    open "https://jira.hioscar.com/browse/${1}"
+}
+alias j=jira
+
 ## phabricator
 function d() {
     open "https://phabricator.hioscar.com/D${1}"
@@ -103,6 +109,7 @@ alias gcm='git checkout master'
 alias gco='git checkout'
 alias gd='git diff'
 alias gs='git status'
+alias gg='git grep'
 
 ## py
 alias start-moto='moto_server -H 127.0.0.1 -p 3000 s3bucket_path'
@@ -116,6 +123,7 @@ alias start-sweb='export LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN=1; python /Users/ong/c
 ## pants
 alias p='./pants'
 alias pt='./pants goal build-deps --build-deps-virtualenv=data'
+alias ptg='./pants target-gen --'
 
 ### builds
 alias pants-build='./pants binary python/manhattan:manhattan'
@@ -149,6 +157,9 @@ alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
 ## pants
 source $DATA_REPO/engshare/bin/pants_bash_autocomplete
 
+## nvm
+source ~/.nvm/nvm.sh
+
 ## arc
 export PATH="$PATH:$INIT_ROOT_DIR/libs/arc/arcanist/bin" # Add arc (phab) to path
 source $INIT_ROOT_DIR/libs/arc/arcanist/resources/shell/bash-completion
@@ -159,3 +170,17 @@ alias esearch='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasti
 # symlink stuff
 export PATH=$PATH:$HOME/bin
 
+# remote hosts
+resolve () {
+        host $1 | awk '{ print $4  }' | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -v 'in' | xargs -I {} dig +short -x {}
+}
+
+# Django specific, please rm when done
+durl () {
+    git grep -n -e "redirect(['\"]$1['\"]" --or -e "reverse(['\"]$1['\"]" --or -e "url.* ['\"]$1['\"]"
+}
+
+# bash helper
+realpath() {
+    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
